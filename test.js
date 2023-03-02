@@ -102,17 +102,21 @@ const safari = require('selenium-webdriver/safari');
 // Create a Safari driver
 const driver = new Builder().forBrowser('safari').setSafariOptions(new safari.Options()).build();
 
-// Navigate to Google.com
-driver.get('https://www.google.com');
+// Navigate to 
+driver.get('http://192.168.1.101:3000').then(function() {
+  setTimeout(function() {}, 5000);
+});
 
-// Find the search box and enter "BrowserStack"
-driver.findElement(By.name('q')).sendKeys('BrowserStack', Key.RETURN);
+
+// Find the 
+//driver.findElement(By.name('q')) //.sendKeys('BrowserStack', Key.RETURN);
+driver.findElement(By.xpath("//input[@placeholder='Enter Email']"))
 
 // Close the browser
-driver.wait(until.titleContains('BrowserStack'), 10000).then(() => {
-  console.log('Search results for "BrowserStack" found!');
-  driver.quit();
-}).catch((error) => {
-  console.error(error);
-  driver.quit();
-});
+// driver.wait(until.titleContains('BrowserStack'), 10000).then(() => {
+//   console.log('Search results for "BrowserStack" found!');
+//   driver.quit();
+// }).catch((error) => {
+//   console.error(error);
+//   driver.quit();
+// });
