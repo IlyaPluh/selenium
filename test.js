@@ -101,6 +101,7 @@ const safari = require('selenium-webdriver/safari');
 
 // Create a Safari driver
 const driver = new Builder().forBrowser('safari').setSafariOptions(new safari.Options()).build();
+// driver.manage().setTimeouts({ implicit: 10000 })
 
 // Navigate to 
 driver.get('https://google.com')
