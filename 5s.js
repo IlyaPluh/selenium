@@ -44,8 +44,7 @@ const liproblem = driver.findElements(By.xpath('//ul[@id="type-list"]//li'))
 
 // Find the "About Us" link and click it
 // const aboutUsLink = driver.findElement(By.className('item-118')) //linkText('About us'));
-// const firstChild = aboutUsLink.findElement(By.xpath('./*'));   
-// firstChild.click();
+// const firstChild = aboutUsLink.findElement(By.xpath('./*')).click();   
 
 })
 .finally(() => {
