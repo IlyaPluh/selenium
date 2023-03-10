@@ -1,3 +1,3 @@
-const liTextArray = liproblems.map((el) => {
-//     return el.getText();
-//   });
+.finally(() => {
+//   closebrowser(1000)
+// })

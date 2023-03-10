@@ -13,13 +13,24 @@ const driver = new Builder().forBrowser('chrome').setChromeOptions(chromeOptions
 // Navigate to 5scontrol
 driver.get('https://5scontrol.com');
 
+// Wait for the page to fully load
+const waitUntilPageLoaded = async () => {
+  await driver.wait(async () => {
+    const state = await driver.executeScript('return document.readyState');
+    return state === 'complete';
+  }, 10000);
+};
+
+waitUntilPageLoaded().then(() => {
 // Find chekbox problems
 const chekboxproblems = driver.findElement(By.className('uk-inline')).click();
 const liproblems = driver.findElement(By.xpath("//\*[.='Lost inventory']")).click();
+
 //const ulproblems = driver.findElement(By.id('type-list'))
 //const liproblems = ulproblems.findElement(By.xpath('./*[3]')).click(); 
-
 //const liproblem = driver.wait(driver.findElements(By.xpath('//ul[@id="type-list"]//li')), 3000)
+
+// console li text
 const liproblem = driver.findElements(By.xpath('//ul[@id="type-list"]//li'))
   .then(function(elements) {
     setTimeout(function() {
@@ -36,4 +47,7 @@ const liproblem = driver.findElements(By.xpath('//ul[@id="type-list"]//li'))
 // const firstChild = aboutUsLink.findElement(By.xpath('./*'));   
 // firstChild.click();
 
-closebrowser(6000);
+})
+.finally(() => {
+  closebrowser(2000)
+})
