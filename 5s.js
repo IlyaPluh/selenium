@@ -28,7 +28,7 @@ const liproblems = driver.findElement(By.xpath("//\*[.='Lost inventory']")).clic
 
 //const ulproblems = driver.findElement(By.id('type-list'))
 //const liproblems = ulproblems.findElement(By.xpath('./*[3]')).click(); 
-//const liproblem = driver.wait(driver.findElements(By.xpath('//ul[@id="type-list"]//li')), 3000)
+//const liproblems = driver.wait(driver.findElements(By.xpath('//ul[@id="type-list"]//li')), 3000)
 
 // console li text
 const liproblem = driver.findElements(By.xpath('//ul[@id="type-list"]//li'))
@@ -38,8 +38,8 @@ const liproblem = driver.findElements(By.xpath('//ul[@id="type-list"]//li'))
       element.getText().then(function(text) {
         console.log('- ' + text);
       });
-    });
-}, 1000)
+    }); 
+}, 1000) 
   })
 
 // Find the "About Us" link and click it
